@@ -2,11 +2,11 @@
 \alias{Limpet Palletes}
 \title{Limpet Palletes}
 \usage{
-Lim_palette("pal1",n, c("discrete","continuous"))
+lim_palette("pal1",n, c("discrete","continuous"))
 }
 \description{
-Contains palettes based on limpet painting and can produce new continuous palettes following the design of the wesanderson package (see example).
+Contains palettes based on limpet painting and can produce new continuous palettes following the design of the [wesanderson](https://github.com/karthik/wesanderson) package (see example).
 }
 \examples{
-Lim_palette("pal1",15,"continuous")
+lim_palette("pal1",15,"continuous")
 }

@@ -1,7 +1,7 @@
 
 #List of palettes
 
-Limpet_pals <- list(
+limpet_pals <- list(
   pal1 = c("#3F4244","#816F57","#42423A"),
   pal2 = c("#9B9877","#8C7652"),
   pal3 = c("#545C5F","#847367","#9AA099","#A39D83","#B4A597"),
@@ -17,7 +17,7 @@ Limpet_pals <- list(
 
 # Make own palette based on the wesanderson package
 
-Lim_palette <- function(name, n, type = c("discrete", "continuous")) {
+lim_palette <- function(name, n, type = c("discrete", "continuous")) {
   type <- match.arg(type)
 
   pal <- Limpet_pals[[name]]
