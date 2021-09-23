@@ -1,0 +1,92 @@
+---
+title: "make palettes"
+author: "Niklas Hausmann"
+date: "23/09/2021"
+output: html_document
+---
+---
+title: "Template Title"
+author: "Niklas Hausmann"
+date: "Today"
+output: pdf_document
+---
+
+# Libraries 
+```{r Libraries,echo=FALSE,message = FALSE,warning = FALSE}
+knitr::opts_chunk$set(echo=FALSE,message = FALSE,warning = FALSE)
+
+{
+  pacman::p_load(
+    here,
+    janitor,colorfindr,
+    tidyverse,
+    cowplot,ggx,
+    patchwork,
+    RColorBrewer) 
+  
+  theme_set(theme_cowplot())
+}
+
+rgb2col = function(rgbmat){
+  ProcessColumn = function(col){
+    rgb(rgbmat[1, col], 
+        rgbmat[2, col], 
+        rgbmat[3, col], 
+        maxColorValue = 255)
+  }
+  sapply(1:ncol(rgbmat), ProcessColumn)
+}
+
+```
+
+# average_function
+```{r average_function}
+
+ave_col = function(cols){
+
+
+length <- col2rgb(cols[["tm"]][["col_hex"]]) %>% 
+            t() %>% nrow()
+
+col_ave <- col2rgb(cols[["tm"]][["col_hex"]]) %>% 
+            t() %>% 
+          as_tibble() %>%
+            mutate(temp="temp") %>%
+  select(temp,everything()) %>% 
+          adorn_totals(name = "") %>% 
+  select(-temp) %>% 
+    mutate(across(c(1:3), ~as.character(round(./length)))) %>% 
+          slice_tail() %>% 
+  t() %>% 
+  rgb2col()
+
+print(col_ave)
+
+}
+
+
+
+```
+
+# Plot
+```{r Plot}
+
+cols <- get_colors(
+  img = here("pal9_5.png"),
+  min_share = 0.01
+) %>% 
+  plot_colors(sort = "size")
+
+ave_col(cols)
+
+```
+
+
+# Palette
+```{r Palette}
+
+c("#D6B47D","#5D5346","#C3BB9C","#BA9D7B","#CDC397") %>% 
+  scales::show_col()
+
+
+```

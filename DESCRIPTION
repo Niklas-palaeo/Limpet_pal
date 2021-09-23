@@ -1,0 +1,10 @@
+Package: LimpetPals
+Type: Package
+Title: Contains colour palettes based on limpet paintings by the Human Limpet Project
+Version: 0.1.0
+Author: Niklas Hausmann
+Maintainer: Niklas Hausmann <niklas@palaeo.eu>
+Description:
+License: Creative Commons
+Encoding: UTF-8
+LazyData: true
