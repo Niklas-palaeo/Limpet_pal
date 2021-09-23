@@ -1,6 +1,6 @@
-\name{Limpet Palletes}
-\alias{Limpet Palletes}
-\title{Limpet Palletes}
+\name{Limpet Palettes}
+\alias{Limpet Palettes}
+\title{Limpet Palettes}
 \usage{
 lim_palette("pal1",n, c("discrete","continuous"))
 }
